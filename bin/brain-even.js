@@ -19,7 +19,7 @@ const userSucceed = () => {
 
 const madeMistake = (answer) => {
   console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  console.log(`Let's try again ${userName}!`);
+  console.log(`Let's try again, ${userName}!`);
   mistake = true;
 };
 
