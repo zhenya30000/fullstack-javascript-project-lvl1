@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import * as engine from '../src/index.js';
+import startGame from '../src/index.js';
 
 const rules = 'What is the result of the expression?';
 
@@ -35,4 +35,4 @@ const generateAnswers = (equations) => {
 
 const correctAnswers = generateAnswers(questions);
 
-engine.startGame(questions, rules, correctAnswers);
+startGame(questions, rules, correctAnswers);

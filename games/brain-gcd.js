@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import * as engine from '../src/index.js';
+import startGame from '../src/index.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 
@@ -22,4 +22,4 @@ const generateAnswers = (equations) => {
 
 const correctAnswers = generateAnswers(questions);
 
-engine.startGame(questions, rules, correctAnswers);
+startGame(questions, rules, correctAnswers);

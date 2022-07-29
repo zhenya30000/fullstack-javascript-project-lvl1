@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import * as engine from '../src/index.js';
+import startGame from '../src/index.js';
 
 const questions = [13, 26, 47];
 const correctAnswers = [];
@@ -13,4 +13,4 @@ for (let i = 0; i < questions.length; i += 1) {
   }
 }
 
-engine.startGame(questions, rules, correctAnswers);
+startGame(questions, rules, correctAnswers);
