@@ -23,7 +23,6 @@ const questions = generateQuestions(3);
 const generateAnswers = (equations) => {
   const result = [];
   for (let i = 0; i < equations.length; i += 1) {
-    equations[i].split(' ');
     const [firstVal, operator, secondVal] = equations[i].split(' ');
     if (operator === '+') {
       result.push(`${Number(firstVal) + Number(secondVal)}`);
