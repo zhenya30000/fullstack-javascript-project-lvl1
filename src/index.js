@@ -7,7 +7,7 @@ let looseFlag = false;
 const sayHi = () => {
   console.log('Welcome to the Brain Games!');
   userName = readlineSync.question('May I have your name? ');
-  console.log(`Hi, ${userName}!`);
+  console.log(`Hello, ${userName}!`);
 };
 
 const declareRules = (string) => {
