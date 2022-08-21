@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
 import startGame from '../index.js';
+import getRandomInRange from '../helpers.js';
 
 const rules = 'What number is missing in the progression?';
 const correctAnswers = [];
 
 const generateQuestions = (questionsCount) => {
   const result = [];
-  const getRandomInRange = (max, min = 0) => Math.floor((Math.random() * (max - min)) + min);
   for (let j = 0; j < questionsCount; j += 1) {
     let nextItem = getRandomInRange(90);
     const increment = getRandomInRange(10, 1);
