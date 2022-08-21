@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import startGame from '../src/index.js';
+import startGame from '../index.js';
 
 const rules = 'What number is missing in the progression?';
 const correctAnswers = [];

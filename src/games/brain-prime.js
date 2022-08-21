@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import startGame from '../src/index.js';
+import startGame from '../index.js';
 
 const questions = [7, 57, 73];
 const correctAnswers = [];

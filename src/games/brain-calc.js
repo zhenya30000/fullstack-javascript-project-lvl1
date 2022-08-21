@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import startGame from '../src/index.js';
+import startGame from '../index.js';
 
 const rules = 'What is the result of the expression?';
 
