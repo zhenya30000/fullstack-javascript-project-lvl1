@@ -12,7 +12,7 @@ export default (questions, rules, correctAnswer) => {
       console.log('Correct!');
     } else {
       console.log(
-        `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer[i]}'.`,
       );
       console.log(`Let's try again, ${userName}!`);
       return;
