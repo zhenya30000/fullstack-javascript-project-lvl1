@@ -6,8 +6,8 @@ import getRandomInRange from '../helpers.js';
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const generateRound = () => {
-  const questionAnswerPair = [getRandomInRange(100, 1)];
-  for (let j = 0; j < questionAnswerPair[0]; j += 1) {
+  const questionAnswerPair = [getRandomInRange(100, 3)];
+  for (let j = 2; j < questionAnswerPair[0]; j += 1) {
     if (questionAnswerPair[0] % j === 0) {
       questionAnswerPair.push('no');
       break;
@@ -19,4 +19,6 @@ const generateRound = () => {
   return questionAnswerPair;
 };
 
-startGame(rules, generateRound);
+console.log(generateRound());
+
+/* startGame(rules, generateRound); */
