@@ -19,5 +19,4 @@ const generateRound = () => {
   return questionAnswerPair;
 };
 
-console.log(generateRound());
-/* startGame(rules, generateRound); */
+startGame(rules, generateRound);
