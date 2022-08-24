@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 import startGame from '../index.js';
 import getRandomInRange from '../helpers.js';
 
