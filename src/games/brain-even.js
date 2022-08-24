@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 import startGame from '../index.js';
+import getRandomInRange from '../helpers.js';
 
-const questions = [13, 26, 47];
-const correctAnswers = [];
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-for (let i = 0; i < questions.length; i += 1) {
-  if (questions[i] % 2 === 0) {
-    correctAnswers.push('yes');
-  } else {
-    correctAnswers.push('no');
-  }
-}
+const generateRound = () => {
+  const questionAnswerPair = [];
+  questionAnswerPair.push(getRandomInRange(100));
+  const isEven = (questionAnswerPair[0] % 2 === 0) ? 'yes' : 'no';
+  questionAnswerPair.push(isEven);
+  return questionAnswerPair;
+};
 
-startGame(questions, rules, correctAnswers);
+startGame(rules, generateRound);
