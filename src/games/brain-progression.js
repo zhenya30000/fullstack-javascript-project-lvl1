@@ -13,7 +13,7 @@ const generateRound = () => {
   const hiddenSymbolIndex = getRandomInRange(arrayLength, 2);
   questionAnswerPair.push([`${nextItem}`]);
   for (let i = 0; i < arrayLength - 1; i += 1) {
-    if (i === hiddenSymbolIndex - 1) {
+    if (i === hiddenSymbolIndex) {
       questionAnswerPair[0] += ' ..';
       nextItem += increment * 2;
       questionAnswerPair.push(`${nextItem - increment}`);
