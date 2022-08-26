@@ -4,32 +4,24 @@ import startGame from '../index.js';
 import getRandomInRange from '../helpers.js';
 
 const rules = 'What number is missing in the progression?';
-const correctAnswers = [];
 
-const generateQuestions = (questionsCount) => {
-  const result = [];
-  for (let j = 0; j < questionsCount; j += 1) {
-    let nextItem = getRandomInRange(90);
-    const increment = getRandomInRange(10, 1);
-    const arrayLength = getRandomInRange(10, 5);
-    const hiddenSymbolIndex = getRandomInRange(arrayLength, 2);
-    result.push([`${nextItem}`]);
-    for (let i = 0; i < arrayLength - 1; i += 1) {
-      if (i === hiddenSymbolIndex - 1) {
-        result[j] += ' ..';
-        nextItem += increment * 2;
-        correctAnswers.push(`${nextItem - increment}`);
-        result[j] += ` ${nextItem}`;
-        i += 2;
-      }
-      nextItem += increment;
-      result[j] += ` ${nextItem}`;
-    }
-    result[j] = result[j].toString();
+const generateRound = () => {
+  const questionAnswerPair = [];
+  const questions = [];
+  let nextItem = getRandomInRange(90);
+  const increment = getRandomInRange(10, 1);
+  const arrayLength = getRandomInRange(10, 5);
+  let answer = 0;
+  const hiddenSymbolIndex = getRandomInRange(arrayLength - 1);
+  for (let i = 0; i <= arrayLength - 1; i += 1) {
+    questions.push(nextItem);
+    nextItem += increment;
   }
-  return result;
+  answer = `${questions[hiddenSymbolIndex]}`;
+  questions[hiddenSymbolIndex] = '..';
+  questionAnswerPair.push(questions.join(' '));
+  questionAnswerPair.push(answer);
+  return questionAnswerPair;
 };
 
-const questions = generateQuestions(3);
-
-startGame(questions, rules, correctAnswers);
+startGame(rules, generateRound);

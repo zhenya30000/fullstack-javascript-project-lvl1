@@ -1,20 +1,22 @@
 #!/usr/bin/env node
-import startGame from '../index.js';
 
-const questions = [7, 57, 73];
-const correctAnswers = [];
+import startGame from '../index.js';
+import getRandomInRange from '../helpers.js';
+
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-for (let i = 0; i < questions.length; i += 1) {
-  for (let j = 2; j < questions[i]; j += 1) {
-    if (questions[i] % j === 0) {
-      correctAnswers.push('no');
+const generateRound = () => {
+  const questionAnswerPair = [getRandomInRange(100, 3)];
+  for (let j = 2; j < questionAnswerPair[0]; j += 1) {
+    if (questionAnswerPair[0] % j === 0) {
+      questionAnswerPair.push('no');
       break;
-    } else if (j === questions[i] - 1) {
-      correctAnswers.push('yes');
+    } else if (j === questionAnswerPair[0] - 1) {
+      questionAnswerPair.push('yes');
       break;
     }
   }
-}
+  return questionAnswerPair;
+};
 
-startGame(questions, rules, correctAnswers);
+startGame(rules, generateRound);
