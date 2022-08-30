@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import startGame from '../index.js';
 import getRandomInRange from '../helpers.js';
 
@@ -24,4 +22,4 @@ const generateRound = () => {
   return questionAnswerPair;
 };
 
-startGame(rules, generateRound);
+export default () => startGame(rules, generateRound);
