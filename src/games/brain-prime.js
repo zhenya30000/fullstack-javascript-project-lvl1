@@ -3,18 +3,20 @@ import getRandomInRange from '../helpers.js';
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const generateRound = () => {
-  const questionAnswerPair = [getRandomInRange(100, 3)];
-  for (let j = 2; j < questionAnswerPair[0]; j += 1) {
-    if (questionAnswerPair[0] % j === 0) {
-      questionAnswerPair.push('no');
-      break;
-    } else if (j === questionAnswerPair[0] - 1) {
-      questionAnswerPair.push('yes');
-      break;
+const isPrime = (number) => {
+  for (let j = 2; j < number; j += 1) {
+    if (number % j === 0) {
+      return 'no';
     }
   }
-  return questionAnswerPair;
+  return 'yes';
+};
+
+const generateRound = () => {
+  const randomNumber = getRandomInRange(100, 3);
+  const question = `${randomNumber}`;
+  const answer = isPrime(randomNumber);
+  return [question, answer];
 };
 
 export default () => startGame(rules, generateRound);
