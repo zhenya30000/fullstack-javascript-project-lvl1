@@ -3,19 +3,14 @@ import getRandomInRange from '../helpers.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 
+const getGcd = (num1, num2) => ((num2 === 0) ? num1 : getGcd(num2, num1 % num2));
+
 const generateRound = () => {
-  const questionAnswerPair = [];
   const firstVal = getRandomInRange(50, 1);
   const secondVal = getRandomInRange(50, 1);
-  questionAnswerPair.push(`${firstVal} ${secondVal}`);
-  const gcd = (num1, num2) => {
-    if (num2 === 0) {
-      return num1;
-    }
-    return gcd(num2, num1 % num2);
-  };
-  questionAnswerPair.push(`${gcd(Number(firstVal), Number(secondVal))}`);
-  return questionAnswerPair;
+  const question = `${firstVal} ${secondVal}`;
+  const answer = `${getGcd(firstVal, secondVal)}`;
+  return [question, answer];
 };
 
 export default () => startGame(rules, generateRound);
