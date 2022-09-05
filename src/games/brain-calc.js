@@ -17,7 +17,9 @@ const generateRound = () => {
   const firstValue = getRandomInRange(20);
   const secondValue = getRandomInRange(20);
   const operator = operators[getRandomInRange(2)];
-  return [`${firstValue} ${operator} ${secondValue}`, calculate(firstValue, secondValue, operator)];
+  const question = `${firstValue} ${operator} ${secondValue}`;
+  const answer = calculate(firstValue, secondValue, operator);
+  return [question, answer];
 };
 
 export default () => startGame(rules, generateRound);
