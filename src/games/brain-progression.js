@@ -3,23 +3,26 @@ import getRandomInRange from '../helpers.js';
 
 const rules = 'What number is missing in the progression?';
 
-const generateRound = () => {
-  const questionAnswerPair = [];
-  const questions = [];
-  let nextItem = getRandomInRange(90);
-  const increment = getRandomInRange(10, 1);
-  const arrayLength = getRandomInRange(10, 5);
-  let answer = 0;
-  const hiddenSymbolIndex = getRandomInRange(arrayLength - 1);
-  for (let i = 0; i <= arrayLength - 1; i += 1) {
-    questions.push(nextItem);
-    nextItem += increment;
+const generateProgression = (startNum, length, increment) => {
+  const question = [];
+  let nextNum = startNum;
+  for (let i = 0; i <= length - 1; i += 1) {
+    question.push(nextNum);
+    nextNum += increment;
   }
-  answer = `${questions[hiddenSymbolIndex]}`;
-  questions[hiddenSymbolIndex] = '..';
-  questionAnswerPair.push(questions.join(' '));
-  questionAnswerPair.push(answer);
-  return questionAnswerPair;
+  return question;
+};
+
+const generateRound = () => {
+  const startNum = getRandomInRange(90);
+  const increment = getRandomInRange(10, 1);
+  const length = getRandomInRange(10, 5);
+  const hiddenSymbolIndex = getRandomInRange(length - 1);
+  const progression = (generateProgression(startNum, length, increment));
+  const answer = `${progression[hiddenSymbolIndex]}`;
+  progression[hiddenSymbolIndex] = '..';
+  const question = progression.join(' ');
+  return [question, answer];
 };
 
 export default () => startGame(rules, generateRound);
