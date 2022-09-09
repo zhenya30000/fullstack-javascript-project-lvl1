@@ -15,7 +15,7 @@ const isPrime = (number) => {
 const generateRound = () => {
   const randomNumber = getRandomInRange(100, 3);
   const question = `${randomNumber}`;
-  const answer = isPrime(randomNumber) === true ? 'yes' : 'no';
+  const answer = isPrime(randomNumber) ? 'yes' : 'no';
   return [question, answer];
 };
 
